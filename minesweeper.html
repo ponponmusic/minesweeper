@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <!-- 嵌入css檔 以及 javascript檔 -->
+    <link href="minesweeper.css" rel="stylesheet" />  <!-- href == html reference , rel == relation -->
+    <script src="minesweeper.js"></script> <!-- js放在head代表要調用時才觸發,放在body則為頁面載入即觸發 -->
+
+    <!-- 設定網頁頁籤標題 -->
+    <title>踩地雷</title>
+
+    <!-- 初始化 踩地雷js -->
+
+	<meta charset="utf-8" />
+</head>
+<body onload="createBombplace()">
+    <!-- 設定標題 -->
+    <div class="banner">
+       <label> MINESWEEPER </label>
+    </div>
+
+    <!-- 設定內容 -->
+    <div id="div1" class="content">
+        <!-- 放重新開始鍵,以及空一行 讓踩地雷往下 -->
+        <table border="0">
+            <tr height="150">
+                <td align="center" valign="bottom" width="320">
+                    <button id="btnrefresh" onclick="window.location.reload()"> RESTART </button>
+                </td>
+            </tr>
+        </table>
+
+        <!-- 下方擺放左右兩邊空間 -->
+        <table border="0">
+            <tr>
+                <td>
+                    <!-- 遊戲區域-->
+                    <table align="center" height="600" width="700" border="0">
+                        <!-- 炸彈數目 重新開始 倒時器 愛心數目 -->
+                        <tr>
+                            <td height="100" width="170" valign="bottom">
+                                <!-- 炸彈圖片與數目 -->
+                                <img src="pic/bomb.png" height="70" width="70">
+                                <label>&nbsp;10</label>
+                            </td>
+                            <td width="240" align="right" valign="bottom">
+                                <!-- 倒時器 -->
+                                <label id="time">
+                                </label>
+                            </td>
+                            <td valign="bottom" align="right">
+                                <!-- 愛心數目 -->
+                                <img src="pic/like.png" id="h1" height="60" width="60">
+                                <img src="pic/like.png" id="h2" height="60" width="60">
+                                <img src="pic/like.png" id="h3" height="60" width="60">
+                            </td>
+                        </tr>
+                        <!-- 建立地雷區 -->
+                        <tr>
+                            <td colspan="5" id="bomb_place"></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+    <!-- game over時呈現畫面 -->
+    <div id="div2" class="GameOver_Div" style="display:none">
+
+        <!-- 空一行 讓踩地雷往下 -->
+        <table>
+            <tr height="150"></tr>
+        </table>
+        <!-- 放入結局狀態 -->
+        <table border="0" align="center">
+            <tr>
+                <td height="800px" style="background-color:rgba(212, 106, 106 ,0.4)">
+                    <label id="gameover_text"> game over! </label>
+                </td>
+            <tr>
+        </table>
+
+    </div>
+
+
+</body>
+</html>
